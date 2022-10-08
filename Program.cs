@@ -6,11 +6,20 @@ Stopwatch stopwatch = new Stopwatch();
 while (true)
 {
     Console.WriteLine("Введите число ");
-    stopwatch.Start();
+    
     int n = int.Parse(Console.ReadLine());
-    Console.WriteLine(FactorialByRec(n));
+
+    stopwatch.Restart();
+    var res1 = Factorial(n);
     stopwatch.Stop();
-    Console.WriteLine($"----------Прошло милисекунд: {stopwatch.ElapsedMilliseconds}");
+    Console.WriteLine(res1);
+    Console.WriteLine($"----------Прошло: {stopwatch.Elapsed}");
+
+    stopwatch.Restart();
+    var res2 = FactorialByRec(n);
+    stopwatch.Stop();
+    Console.WriteLine(res2);
+    Console.WriteLine($"----------Прошло: {stopwatch.Elapsed}");
 }
 
 static BigInteger Factorial(int x)
